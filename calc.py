@@ -1,4 +1,13 @@
 from clifford.sta import * 
+from scipy.constants import e 
+
+
+thres= 1e-10
+is_close= lambda x,y:abs(x-y)<thres
+is_close_ish= lambda x,y:abs(x-y)<thres*1e4
+
+
+
 def da(f,a,tau=1e-9):
     # the a-derivative of function 'f()'   in direction of 'a'  chap2 (eq 1.5)
     return lambda x:(f(x+tau*a) - f(x))/tau       
